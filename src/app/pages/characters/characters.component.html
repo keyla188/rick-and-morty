@@ -1,0 +1,34 @@
+<div class="container content home">
+    <div class="container-top">
+
+        <div class="title">
+            <h1>Personajes</h1>
+        </div>
+
+        <div class="searching">
+            <input type="text" placeholder="Busca a tu personaje" [(ngModel)]="search" (ngModelChange)="onSearch()" />
+            <!--        <button>Buscar</button>-->
+        </div>
+    </div>
+
+    <app-loader *ngIf="loading"></app-loader>
+
+    <div class="container-cards" *ngIf="listFiltered && listFiltered.length > 0">
+        <app-card
+            *ngFor="let character of listFiltered | paginate: { itemsPerPage: 20, currentPage: p, totalItems: totalItems }"
+            [characterData]="character"></app-card>
+    </div>
+    <div *ngIf="!(listFiltered && listFiltered.length > 0)">
+        <h2>No se encontraron personajes.</h2>
+    </div>
+    <div class="pagination">
+        <pagination-controls class="my-pagination" (pageChange)="goToPage($event)"
+            class="my-pagination"></pagination-controls>
+    </div>
+
+
+
+
+
+
+</div>

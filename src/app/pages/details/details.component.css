@@ -1,0 +1,46 @@
+.alive-status {
+    background-color: #00FF19;
+}
+
+.dead-status {
+    background-color: red;
+}
+
+.unknown-status {
+    background-color: gray;
+}
+
+.container-top p {
+    color: black;
+    padding: 10px 50px;
+    border-radius: 20%;
+}
+
+.container-right {
+    text-align: center;
+}
+
+.container-left {
+    padding-left: 50px;
+}
+
+.recomendations {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width: 700px) {
+    .container-bottom {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin: auto;
+    }
+
+    .container-left {
+        padding: 5px;
+    }
+
+}

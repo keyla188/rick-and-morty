@@ -1,0 +1,89 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    font-size: 25px;
+    height: 20%;
+}
+
+#logo {
+    padding: 8px;
+    height: 50px;
+    transition: all 0.3s;
+    margin-left: 15px;
+}
+
+#logo:hover {
+    transform: scale(1.2);
+
+}
+
+.container-left a {
+    width: 100%;
+}
+
+nav ul {
+    overflow: hidden;
+    display: flex;
+}
+
+nav a {
+    padding: 20px 40px;
+    display: block;
+    text-align: center;
+
+}
+
+
+nav a:hover {
+    background-color: hsl(115, 79%, 39%, 0.66);
+}
+
+nav li {
+    float: left;
+
+}
+
+.container-left {
+    display: flex;
+    width: 20%;
+    align-items: center;
+}
+
+.container-right {
+    display: flex;
+    width: 80%;
+    justify-content: flex-end;
+}
+
+.active {
+    background-color: hsl(115, 79%, 39%, 0.66);
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .container-left,
+    .container-right {
+        text-align: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+
+
+    .container-right .nav-container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .nav-container {
+        margin: 20px auto;
+    }
+
+
+}

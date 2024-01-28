@@ -1,1 +1,160 @@
-/* You can add global styles to this file, and also import other style files */
+::-webkit-scrollbar {display: none;}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Neucha', cursive;
+    color: white;
+}
+
+html, body {
+    scroll-behavior: smooth;
+}
+
+
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+body {
+    background-color: black;
+
+}
+
+
+button { 
+    font-size: 30px;
+    background-color: #00FF19;
+    color: black;
+    border: none;
+    cursor: pointer;
+    min-width: 200px;
+    padding: 8px 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 30%;
+}
+
+button:hover {
+    background-color: hsl(115, 79%, 39%, 0.66);
+    color: white;
+}
+
+a{
+    cursor: pointer;
+}
+
+.container {
+    padding: 10px;
+    display: block;
+    margin: auto;
+    
+}
+
+.content {
+    min-height: 620px;
+    height: auto;
+    margin: auto 70px;
+}
+
+.container-left {
+    display: block;
+    width: 50%;
+}
+
+.container-right {
+    display: block;
+    width: 50%;
+}
+
+input {
+    color: white;
+    background-color: black;
+    padding: 8px 15px;
+    border-radius: 20px;
+    width: 100%;
+    height: 60px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid white;
+    font-size: 20px;
+}
+
+.searching {
+    display: flex;
+    width: 80%;
+}
+
+.container-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+select {
+    background-color: black;
+    width: 70%;
+    padding: 8px 15px;
+    height: 60px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid white;
+    font-size: 20px;
+}
+
+.filter {
+    display: block;
+    width: 80%;
+}
+
+span {
+    color: #00FF19;
+
+}
+
+p {
+    font-size: 20px;
+    margin: 10px auto;
+}
+
+.container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.container-bottom { 
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.no-found {
+    margin: 100px 20px;
+}
+
+@media screen and (max-width: 780px) {
+    .content {
+        margin: auto;
+    }
+
+    .container-left,
+    .container-right {
+        width: 100%;
+        margin: auto;
+        padding: 5px;
+    }
+
+    .container-cards {
+        margin: auto 15px;
+    }
+}
