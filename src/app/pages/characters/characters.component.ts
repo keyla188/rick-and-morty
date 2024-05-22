@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { CharactersService } from '../../services/characters.service';
-import { CardComponent } from '../../components/card/card.component';
-import { ViewportScroller } from '@angular/common';
-import { LoaderComponent } from '../../components/loader/loader.component';
+import { Component, OnInit } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { NgxPaginationModule } from "ngx-pagination";
+import { CharactersService } from "../../services/characters.service";
+import { CardComponent } from "../../components/card/card.component";
+import { ViewportScroller } from "@angular/common";
+import { LoaderComponent } from "../../components/loader/loader.component";
 
 @Component({
-  selector: 'app-characters',
+  selector: "app-characters",
   standalone: true,
   imports: [
     CardComponent,
@@ -17,13 +17,13 @@ import { LoaderComponent } from '../../components/loader/loader.component';
     NgxPaginationModule,
     LoaderComponent,
   ],
-  templateUrl: './characters.component.html',
-  styleUrl: './characters.component.css',
+  templateUrl: "./characters.component.html",
+  styleUrl: "./characters.component.css",
   providers: [CharactersService],
 })
 export class CharactersComponent implements OnInit {
   public list: any[] = [];
-  public search: string = '';
+  public search: string = "";
   public listFiltered: string[] = [];
   public totalItems: number = 0;
   public p: number = 1;

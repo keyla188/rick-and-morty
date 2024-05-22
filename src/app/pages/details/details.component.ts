@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { CharactersService } from '../../services/characters.service';
-import { CardComponent } from '../../components/card/card.component';
-import { ViewportScroller } from '@angular/common';
-import { shuffle } from 'lodash';
+import { Component, OnInit } from "@angular/core";
+import { Router, ActivatedRoute, Params } from "@angular/router";
+import { CommonModule } from "@angular/common";
+import { CharactersService } from "../../services/characters.service";
+import { CardComponent } from "../../components/card/card.component";
+import { ViewportScroller } from "@angular/common";
+import { shuffle } from "lodash";
 
 @Component({
-  selector: 'app-details',
+  selector: "app-details",
   standalone: true,
   imports: [CommonModule, CardComponent],
-  templateUrl: './details.component.html',
-  styleUrl: './details.component.css',
+  templateUrl: "./details.component.html",
+  styleUrl: "./details.component.css",
   providers: [CharactersService],
 })
 export class DetailsComponent implements OnInit {
@@ -27,7 +27,7 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
     this._route.params.subscribe((params) => {
-      let id = params['id'];
+      let id = params["id"];
       this.getCharacter(id);
     });
   }

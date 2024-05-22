@@ -1,25 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { forkJoin } from 'rxjs';
-import { CharactersService } from '../../services/characters.service';
-import { CommonModule } from '@angular/common';
-import { SelectComponent } from '../../components/select/select.component';
-import { CardComponent } from '../../components/card/card.component';
-import { LoaderComponent } from '../../components/loader/loader.component';
+import { Component, OnInit } from "@angular/core";
+import { forkJoin } from "rxjs";
+import { CharactersService } from "../../services/characters.service";
+import { CommonModule } from "@angular/common";
+import { SelectComponent } from "../../components/select/select.component";
+import { CardComponent } from "../../components/card/card.component";
+import { LoaderComponent } from "../../components/loader/loader.component";
 
 @Component({
-  selector: 'app-episodes',
+  selector: "app-episodes",
   standalone: true,
   imports: [CardComponent, CommonModule, SelectComponent, LoaderComponent],
-  templateUrl: './episodes.component.html',
-  styleUrl: './episodes.component.css',
+  templateUrl: "./episodes.component.html",
+  styleUrl: "./episodes.component.css",
   providers: [CharactersService],
 })
 export class EpisodesComponent implements OnInit {
   public list: any[] = [];
   public episodes: any[] = [];
   public selectedEpisode: number = 1;
-  public name: string = '';
-  public airDate: string = '';
+  public name: string = "";
+  public airDate: string = "";
   public residents: any[] = [];
   public loading: boolean = false;
   public hasCharacters: boolean = true;
