@@ -67,7 +67,6 @@ export class EpisodesComponent implements OnInit {
 
     forkJoin(characterRequests).subscribe(
       response => {
-        console.log('Personajes del episodio:', response);
         this.list = response;
         this.loading = false;
       },
