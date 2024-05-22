@@ -36,8 +36,6 @@ export class CharactersComponent implements OnInit {
     this.loading = true
     this.characterService.getCharacters(page, search).subscribe(
       (response: any) => {
-        console.log(search);
-        console.log(page)
         this.list = response.results;
         this.totalItems = response.info.count;
         this.listFiltered = this.list
