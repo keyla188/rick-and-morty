@@ -1,15 +1,15 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class CharactersService {
   public url: string;
 
   constructor(private _http: HttpClient) {
-    this.url = "https://rickandmortyapi.com/api";
+    this.url = 'https://rickandmortyapi.com/api';
   }
 
   getCharacters(page: number, search: string): Observable<any> {
@@ -21,7 +21,7 @@ export class CharactersService {
   }
 
   getCharacter(id: number): Observable<any> {
-    return this._http.get<any>(this.url + "/character/" + id);
+    return this._http.get<any>(this.url + '/character/' + id);
   }
 
   getCharactersStatus(status: string): Observable<any> {
@@ -29,11 +29,11 @@ export class CharactersService {
   }
 
   getLocation(id: number): Observable<any> {
-    return this._http.get<any>(this.url + "/location/" + id);
+    return this._http.get<any>(this.url + '/location/' + id);
   }
 
   getEpisode(id: number): Observable<any> {
-    return this._http.get<any>(this.url + "/episode/" + id);
+    return this._http.get<any>(this.url + '/episode/' + id);
   }
 
   getCharacterByUrl(url: string): Observable<any> {
