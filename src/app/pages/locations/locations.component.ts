@@ -70,7 +70,6 @@ export class LocationsComponent implements OnInit {
     forkJoin(characterRequests).subscribe(
       response => {
         this.list = response;
-        console.log(this.list);
         this.loading = false;
       },
       error => {
