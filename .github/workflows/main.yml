@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Format code
-        run: npx prettier --write '**/*.ts'
+        run: prettier --write '**/*.ts'
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
