@@ -57,7 +57,6 @@ export class EpisodesComponent implements OnInit {
   getCharactersByUrl(characterUrls: string[]) {
 
     if (!characterUrls || characterUrls.length === 0) {
-      console.log('No se encontraron personajes para este episodio.');
       this.hasCharacters = false;
       this.loading = false;
       return;
