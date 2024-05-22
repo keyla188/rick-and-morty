@@ -56,7 +56,6 @@ export class LocationsComponent implements OnInit {
   onLocationSelected(selectedLocation: number): void{
     this.selectedLocation = selectedLocation;
     this.getLocation(selectedLocation);
-    console.log(this.selectedLocation);
   }
 
   getCharactersByUrl(characterUrls: string[]){
