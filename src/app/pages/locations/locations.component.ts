@@ -1,26 +1,26 @@
-import { Component, OnInit } from "@angular/core";
-import { forkJoin } from "rxjs";
-import { CharactersService } from "../../services/characters.service";
-import { CommonModule } from "@angular/common";
-import { CardComponent } from "../../components/card/card.component";
-import { SelectComponent } from "../../components/select/select.component";
-import { LoaderComponent } from "../../components/loader/loader.component";
-import { flatMap } from "lodash";
+import { Component, OnInit } from '@angular/core';
+import { forkJoin } from 'rxjs';
+import { CharactersService } from '../../services/characters.service';
+import { CommonModule } from '@angular/common';
+import { CardComponent } from '../../components/card/card.component';
+import { SelectComponent } from '../../components/select/select.component';
+import { LoaderComponent } from '../../components/loader/loader.component';
+import { flatMap } from 'lodash';
 
 @Component({
-  selector: "app-locations",
+  selector: 'app-locations',
   standalone: true,
   imports: [CardComponent, CommonModule, SelectComponent, LoaderComponent],
-  templateUrl: "./locations.component.html",
-  styleUrl: "./locations.component.css",
+  templateUrl: './locations.component.html',
+  styleUrl: './locations.component.css',
   providers: [CharactersService],
 })
 export class LocationsComponent implements OnInit {
   public list: any[] = [];
   public selectedLocation: number = 1;
-  public name: string = "";
-  public dimension: string = "";
-  public type: string = "";
+  public name: string = '';
+  public dimension: string = '';
+  public type: string = '';
   public residents: any[] = [];
   public loading: boolean = false;
   public hasResidents: boolean = true;
@@ -54,7 +54,7 @@ export class LocationsComponent implements OnInit {
 
   getCharactersByUrl(characterUrls: string[]) {
     if (!characterUrls || characterUrls.length === 0) {
-      console.log("No se encontraron personajes para esta locacion.");
+      console.log('No se encontraron personajes para esta locacion.');
       this.hasResidents = false;
       this.loading = false;
       return;
