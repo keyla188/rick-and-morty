@@ -55,7 +55,6 @@ export class LocationsComponent implements OnInit {
   getCharactersByUrl(characterUrls: string[]) {
     if (!characterUrls || characterUrls.length === 0) {
       console.log("No se encontraron personajes para esta locacion.");
-
       this.hasResidents = false;
       this.loading = false;
       return;
