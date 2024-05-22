@@ -2,7 +2,7 @@ name: Prettier
 
 on:
   push:
-    branches: 
+    branches:
       - master
 
 jobs:
@@ -15,17 +15,17 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20' 
+          node-version: '20'
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install Prettier globally
+        run: npm install --global prettier
 
       - name: Check Prettier version
         run: |
           prettier --version
 
       - name: Format code
-        run: npx prettier --write '**/*.ts'
+        run: prettier --write '**/*.ts'
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
