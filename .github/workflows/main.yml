@@ -25,7 +25,7 @@ jobs:
           prettier --version
 
       - name: Format code
-        run: prettier --write '**/*.ts'
+        run: prettier --write '**/*.{ts,html,css}'
 
       - uses: mikeal/publish-to-github-action@master
         env:
