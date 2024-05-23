@@ -1,27 +1,33 @@
 <div class="container content home">
-    <div class="container-top">
+  <div class="container-top">
+    <app-loader *ngIf="loading"></app-loader>
 
-        <app-loader *ngIf="loading"></app-loader>
-
-        <div class="title" *ngIf="selectedLocation">
-            <h1>Locación: <span>{{ name }}</span> </h1>
-            <p>Dimension: {{ dimension }}</p>
-            <p>Type: {{ type }} </p>
-        </div>
-        <div *ngIf="!selectedLocation">
-            <p>No se ha encontrado esta locación.</p>
-        </div>
-
-        <div class="filter">
-            <app-select [section]="'Locación - '" [total]="126"
-                (itemSelected)="onLocationSelected($event)"></app-select>
-        </div>
+    <div class="title" *ngIf="selectedLocation">
+      <h1>
+        Locación: <span>{{ name }}</span>
+      </h1>
+      <p>Dimension: {{ dimension }}</p>
+      <p>Type: {{ type }}</p>
     </div>
-    <div class="container-cards" *ngIf="hasResidents">
-        <app-card *ngFor="let character of list" [characterData]="character"></app-card>
-    </div>
-    <div class="no-found" *ngIf="!hasResidents">
-        <p>No hay residentes uwu</p>
+    <div *ngIf="!selectedLocation">
+      <p>No se ha encontrado esta locación.</p>
     </div>
 
+    <div class="filter">
+      <app-select
+        [section]="'Locación - '"
+        [total]="126"
+        (itemSelected)="onLocationSelected($event)"
+      ></app-select>
+    </div>
+  </div>
+  <div class="container-cards" *ngIf="hasResidents">
+    <app-card
+      *ngFor="let character of list"
+      [characterData]="character"
+    ></app-card>
+  </div>
+  <div class="no-found" *ngIf="!hasResidents">
+    <p>No hay residentes uwu</p>
+  </div>
 </div>

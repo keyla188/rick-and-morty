@@ -1,22 +1,29 @@
 <div class="container content home">
-    <div class="container-top">
+  <div class="container-top">
+    <app-loader *ngIf="loading"></app-loader>
 
-        <app-loader *ngIf="loading"></app-loader>
-
-        <div class="title" *ngIf="selectedEpisode">
-            <h1>Episodio: <span>{{ name }} </span> </h1>
-            <p>Fecha: {{ airDate }}</p>
-        </div>
-
-        <div class="filter">
-            <app-select [section]="'Episodio - '" [total]="51" (itemSelected)="onEpisodeSelected($event)"></app-select>
-        </div>
-    </div>
-    <div class="container-cards" *ngIf="hasCharacters">
-        <app-card *ngFor="let character of list" [characterData]="character"></app-card>
-    </div>
-    <div class="no-found" *ngIf="!hasCharacters">
-        <p>No hay residentes uwu</p>
+    <div class="title" *ngIf="selectedEpisode">
+      <h1>
+        Episodio: <span>{{ name }} </span>
+      </h1>
+      <p>Fecha: {{ airDate }}</p>
     </div>
 
+    <div class="filter">
+      <app-select
+        [section]="'Episodio - '"
+        [total]="51"
+        (itemSelected)="onEpisodeSelected($event)"
+      ></app-select>
+    </div>
+  </div>
+  <div class="container-cards" *ngIf="hasCharacters">
+    <app-card
+      *ngFor="let character of list"
+      [characterData]="character"
+    ></app-card>
+  </div>
+  <div class="no-found" *ngIf="!hasCharacters">
+    <p>No hay residentes uwu</p>
+  </div>
 </div>

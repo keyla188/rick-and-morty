@@ -1,37 +1,41 @@
 <div *ngIf="characterData" class="container content detail">
-    <div class="container-top">
-        <h1>{{characterData.name}}</h1>
-        <div [ngSwitch]="characterData.status">
-            <p *ngSwitchCase="'Alive'" [ngClass]="'alive-status'">Status: {{characterData.status}}</p>
-            <p *ngSwitchCase="'Dead'" [ngClass]="'dead-status'">Status: {{characterData.status}}</p>
-            <p *ngSwitchCase="'unknown'" [ngClass]="'unknown-status'">Status: {{characterData.status}}</p>
-            <p *ngSwitchDefault [ngClass]="'default-status'">Status: {{characterData.status}}</p>
-        </div>
+  <div class="container-top">
+    <h1>{{ characterData.name }}</h1>
+    <div [ngSwitch]="characterData.status">
+      <p *ngSwitchCase="'Alive'" [ngClass]="'alive-status'">
+        Status: {{ characterData.status }}
+      </p>
+      <p *ngSwitchCase="'Dead'" [ngClass]="'dead-status'">
+        Status: {{ characterData.status }}
+      </p>
+      <p *ngSwitchCase="'unknown'" [ngClass]="'unknown-status'">
+        Status: {{ characterData.status }}
+      </p>
+      <p *ngSwitchDefault [ngClass]="'default-status'">
+        Status: {{ characterData.status }}
+      </p>
     </div>
-    <div>
-
+  </div>
+  <div></div>
+  <div class="container-bottom">
+    <div class="container-right">
+      <img src="{{ characterData.image }}" />
     </div>
-    <div class="container-bottom">
-        <div class="container-right">
-            <img src="{{characterData.image}}" />
-        </div>
-        <div class="container-left">
-            <p>Gender: {{characterData.gender}}</p>
-            <p>Origin: {{characterData.origin.name}}</p>
-            <p>Location: {{characterData.location.name}}</p>
-            <p>Species: {{characterData.species}}</p>
-        </div>
+    <div class="container-left">
+      <p>Gender: {{ characterData.gender }}</p>
+      <p>Origin: {{ characterData.origin.name }}</p>
+      <p>Location: {{ characterData.location.name }}</p>
+      <p>Species: {{ characterData.species }}</p>
     </div>
-    <div class="recomendations">
-        <h2>Otros personajes: {{characterData.status}}</h2>
-    </div>
+  </div>
+  <div class="recomendations">
+    <h2>Otros personajes: {{ characterData.status }}</h2>
+  </div>
 
-
-    <div class="container-cards">
-        <app-card *ngFor="let character of listStatus" [characterData]="character"></app-card>
-
-    </div>
-
-
-
+  <div class="container-cards">
+    <app-card
+      *ngFor="let character of listStatus"
+      [characterData]="character"
+    ></app-card>
+  </div>
 </div>
