@@ -6,6 +6,7 @@ import { CharactersService } from '../../services/characters.service';
 import { CardComponent } from '../../components/card/card.component';
 import { ViewportScroller } from '@angular/common';
 import { LoaderComponent } from '../../components/loader/loader.component';
+import { debounceTime, distinctUntilChanged, Subject, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-characters',
@@ -29,6 +30,8 @@ export class CharactersComponent implements OnInit {
   public p: number = 1;
   public loading: boolean = false;
 
+  searchSubject = new Subject<string>();
+
   constructor(
     private characterService: CharactersService,
     private viewportScroller: ViewportScroller,
@@ -36,6 +39,17 @@ export class CharactersComponent implements OnInit {
 
   ngOnInit() {
     this.getCharacters(this.p, this.search);
+    this.searchSubject.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap(query => this.getCharactersObservable(this.p, query))
+    ).subscribe(data => {
+      this.list = data.results;
+      this.totalItems = data.info.count;
+      this.listFiltered = this.list;
+      this.loading = false;
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
   }
 
   getCharacters(page: number, search: string) {
@@ -55,14 +69,20 @@ export class CharactersComponent implements OnInit {
     );
   }
 
+  getCharactersObservable(page: number, search: string) {
+    this.loading = true;
+    return this.characterService.getCharacters(page, search);
+  }
+
   goToPage(pageNumber: number) {
     this.p = pageNumber;
     this.getCharacters(this.p, this.search);
   }
 
-  onSearch() {
-    const searchTermLowerCase = this.search.toLowerCase();
-    this.p = 1;
-    this.getCharacters(this.p, searchTermLowerCase);
+  onSearch(searchTerm: string) {
+    //const searchTermLowerCase = this.search.toLowerCase();
+    //this.p = 1;
+    //this.getCharacters(this.p, searchTermLowerCase);
+    this.searchSubject.next(searchTerm);
   }
 }
